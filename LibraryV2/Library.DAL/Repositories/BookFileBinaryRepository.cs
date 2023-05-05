@@ -16,14 +16,14 @@ namespace LibraryV2.Library.DAL.Repositories
             List<BookEntity> bookEntities = GetAllBooks();
             foreach (var curr in bookEntities)
             {
-                if (curr.Code == item.Code)
+                if (curr.Id == item.Id)
                 {
                     throw new Exception("код книги должен отличаться");
                 }
             }
             using (BinaryWriter binaryWriter = new BinaryWriter(new FileStream(@"libraryBookBin.bin", FileMode.Append), Encoding.GetEncoding(1251)))
             {
-                binaryWriter.Write(item.Code);
+                binaryWriter.Write(item.Id);
                 binaryWriter.Write(item.Autor);
                 binaryWriter.Write(item.Genre);
                 binaryWriter.Write(item.Name);
@@ -32,13 +32,13 @@ namespace LibraryV2.Library.DAL.Repositories
             }
         }
 
-        public void DeleteBook(int code)
+        public void DeleteBook(int id)
         {
             List<BookEntity> bookEntities = GetAllBooks();
 
             for (int i = 0; i < bookEntities.Count; i++)
             {
-                if (bookEntities[i].Code == code)
+                if (bookEntities[i].Id == id)
                 {
                     BookEntity bookEntity = bookEntities[i];
                     bookEntities.Remove(bookEntity);
@@ -48,7 +48,7 @@ namespace LibraryV2.Library.DAL.Repositories
             {
                 for (int i = 0; i < bookEntities.Count; i++)
                 {
-                    binaryWriter.Write(bookEntities[i].Code);
+                    binaryWriter.Write(bookEntities[i].Id);
                     binaryWriter.Write(bookEntities[i].Autor);
                     binaryWriter.Write(bookEntities[i].Genre);
                     binaryWriter.Write(bookEntities[i].Name);
@@ -67,7 +67,7 @@ namespace LibraryV2.Library.DAL.Repositories
                 {
                     BookEntity currentBook = new BookEntity();
 
-                    currentBook.Code = binaryReader.ReadInt32();
+                    currentBook.Id = binaryReader.ReadInt32();
                     currentBook.Autor = binaryReader.ReadString();
                     currentBook.Genre = binaryReader.ReadString();
                     currentBook.Name = binaryReader.ReadString();
@@ -80,13 +80,13 @@ namespace LibraryV2.Library.DAL.Repositories
             }
         }
 
-        public BookEntity SearchBook(int code)
+        public BookEntity SearchBook(int id)
         {
             List<BookEntity> bookEntities = GetAllBooks();
 
             for (int i = 0; i < bookEntities.Count; i++)
             {
-                if (bookEntities[i].Code == code)
+                if (bookEntities[i].Id == id)
                 {
                     return bookEntities[i];
                 }

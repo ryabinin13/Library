@@ -16,14 +16,14 @@ namespace LibraryV2.Library.DAL.Repositories
             List<MagazineEntity> magazineEntities = GetAllMagazines();
             foreach (var curr in magazineEntities)
             {
-                if (curr.Code == item.Code)
+                if (curr.Id == item.Id)
                 {
                     throw new Exception("код журнала должен отличаться");
                 }
             }
             using (BinaryWriter binaryWriter = new BinaryWriter(new FileStream(@"libraryMagazineBin.bin", FileMode.Append), Encoding.GetEncoding(1251)))
             {
-                binaryWriter.Write(item.Code);
+                binaryWriter.Write(item.Id);
                 binaryWriter.Write(item.Number);
                 binaryWriter.Write(item.Name);
                 binaryWriter.Write(item.PublishingHouse);
@@ -31,13 +31,13 @@ namespace LibraryV2.Library.DAL.Repositories
             }
         }
 
-        public void DeleteMagazine(int code)
+        public void DeleteMagazine(int id)
         {
             List<MagazineEntity> magazineEntities = GetAllMagazines();
 
             for (int i = 0; i < magazineEntities.Count; i++)
             {
-                if (magazineEntities[i].Code == code)
+                if (magazineEntities[i].Id == id)
                 {
                     MagazineEntity magazineEntity = magazineEntities[i];
                     magazineEntities.Remove(magazineEntity);
@@ -47,7 +47,7 @@ namespace LibraryV2.Library.DAL.Repositories
             {
                 for (int i = 0; i < magazineEntities.Count; i++)
                 {
-                    binaryWriter.Write(magazineEntities[i].Code);
+                    binaryWriter.Write(magazineEntities[i].Id);
                     binaryWriter.Write(magazineEntities[i].Number);
                     binaryWriter.Write(magazineEntities[i].Name);
                     binaryWriter.Write(magazineEntities[i].PublishingHouse);
@@ -65,7 +65,7 @@ namespace LibraryV2.Library.DAL.Repositories
                 {
                     MagazineEntity magazineEntity = new MagazineEntity();
 
-                    magazineEntity.Code = binaryReader.ReadInt32();
+                    magazineEntity.Id = binaryReader.ReadInt32();
                     magazineEntity.Number = binaryReader.ReadInt32();
                     magazineEntity.Name = binaryReader.ReadString();
                     magazineEntity.PublishingHouse = binaryReader.ReadString();
@@ -77,13 +77,13 @@ namespace LibraryV2.Library.DAL.Repositories
             }
         }
 
-        public MagazineEntity SearchMagazine(int code)
+        public MagazineEntity SearchMagazine(int id)
         {
             List<MagazineEntity> magazineEntities = GetAllMagazines();
 
             for (int i = 0; i < magazineEntities.Count; i++)
             {
-                if (magazineEntities[i].Code == code)
+                if (magazineEntities[i].Id == id)
                 {
                     return magazineEntities[i];
                 }

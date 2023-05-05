@@ -12,9 +12,9 @@ namespace LibraryV2.Entities
         {
 
         }
-        public BookEntity(string name, int code, string autor, string genre, int year, string publishingHouse)
+        public BookEntity(string name, int id, string autor, string genre, int year, string publishingHouse)
         {
-            Code = code;
+            Id = id;
             Name = name;
             Autor = autor;
             Genre = genre;
@@ -22,7 +22,7 @@ namespace LibraryV2.Entities
             PublishingHouse = publishingHouse;
         }
 
-        public int Code { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

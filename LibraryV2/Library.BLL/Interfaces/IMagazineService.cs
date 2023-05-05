@@ -11,8 +11,8 @@ namespace LibraryV2.Library.BLL.Interfaces
     public interface IMagazineService
     {
         List<MagazineDTO> GetAllMagazines();
-        MagazineDTO SearchMagazine(int code);
+        MagazineDTO SearchMagazine(int id);
         void AddMagazine(MagazineDTO item);
-        void DeleteMagazine(int code);
+        void DeleteMagazine(int id);
     }
 }

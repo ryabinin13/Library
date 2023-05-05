@@ -13,9 +13,9 @@ namespace LibraryV2.Library.BLL.DTO
         {
 
         }
-        public BookDTO(string name, int code, string autor, string genre, int year, string publishingHouse)
+        public BookDTO(string name, int id, string autor, string genre, int year, string publishingHouse)
         {
-            Code = code;
+            Id = id;
             Name = name;
             Autor = autor;
             Genre = genre;
@@ -23,7 +23,7 @@ namespace LibraryV2.Library.BLL.DTO
             PublishingHouse = publishingHouse;
         }
 
-        public int Code { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

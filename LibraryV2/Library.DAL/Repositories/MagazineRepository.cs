@@ -18,11 +18,11 @@ namespace LibraryV2.Library.DAL.Repositories
             return magazines;
         }
 
-        public MagazineEntity SearchMagazine(int code)
+        public MagazineEntity SearchMagazine(int id)
         {
             foreach (var item in magazines)
             {
-                if (code == item.Code)
+                if (id == item.Id)
                 {
                     return item;
                 }
@@ -34,7 +34,7 @@ namespace LibraryV2.Library.DAL.Repositories
         {
             foreach (var item in magazines)
             {
-                if (item.Code == magazine.Code)
+                if (item.Id == magazine.Id)
                 {
                     throw new Exception("код журнала должен отличаться");
                 }
@@ -42,15 +42,11 @@ namespace LibraryV2.Library.DAL.Repositories
             magazines.Add(magazine);
         }
 
-        public void DeleteMagazine(int code)
+        public void DeleteMagazine(int id)
         {
-            foreach (var item in magazines)
-            {
-                if (code == item.Code)
-                {
-                    magazines.Remove(item);
-                }
-            }
+            var m = magazines.Find(x => x.Id == id);
+
+            magazines.Remove(m);
         }
     }
 }

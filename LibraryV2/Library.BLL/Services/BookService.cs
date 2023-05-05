@@ -24,9 +24,9 @@ namespace LibraryV2.Library.BLL.Services
             bookRepository.AddBook(item.MapBookDtoToEntity());
         }
 
-        public void DeleteBook(int code)
+        public void DeleteBook(int id)
         {
-            bookRepository.DeleteBook(code);
+            bookRepository.DeleteBook(id);
         }
 
         public List<BookDTO> GetAllBooks()
@@ -36,9 +36,9 @@ namespace LibraryV2.Library.BLL.Services
 
         }
 
-        public BookDTO SearchBook(int code)
+        public BookDTO SearchBook(int id)
         {
-            return bookRepository.SearchBook(code).MapBookEntityToDto();
+            return bookRepository.SearchBook(id).MapBookEntityToDto();
         }
     }
 }

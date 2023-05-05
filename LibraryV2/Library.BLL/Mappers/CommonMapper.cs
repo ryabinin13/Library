@@ -16,7 +16,7 @@ namespace LibraryV2.Library.BLL.Mappers
             return new BookDTO()
             {
               Autor = bookEntity.Autor,
-              Code = bookEntity.Code,
+              Id = bookEntity.Id,
               Genre = bookEntity.Genre,
               Name = bookEntity.Name,
               PublishingHouse = bookEntity.PublishingHouse,
@@ -28,7 +28,7 @@ namespace LibraryV2.Library.BLL.Mappers
         {
             return new MagazineDTO()
             {
-                Code = magazineEntity.Code,
+                Id = magazineEntity.Id,
                 Name = magazineEntity.Name,
                 Number = magazineEntity.Number,
                 PublishingHouse = magazineEntity.PublishingHouse,
@@ -41,7 +41,7 @@ namespace LibraryV2.Library.BLL.Mappers
             return new BookEntity()
             {
                 Autor = bookDTO.Autor,
-                Code = bookDTO.Code,
+                Id = bookDTO.Id,
                 Genre = bookDTO.Genre,
                 Name = bookDTO.Name,
                 PublishingHouse = bookDTO.PublishingHouse,
@@ -54,7 +54,7 @@ namespace LibraryV2.Library.BLL.Mappers
             return new MagazineEntity
             {
                 Name = magazineDTO.Name,
-                Code = magazineDTO.Code,
+                Id = magazineDTO.Id,
                 Number = magazineDTO.Number,
                 PublishingHouse = magazineDTO.PublishingHouse,
                 Year = magazineDTO.Year
@@ -64,7 +64,7 @@ namespace LibraryV2.Library.BLL.Mappers
         {
             return new MagazineEntity()
             {
-                Code = magazineDTO.Code,
+                Id = magazineDTO.Id,
                 Name = magazineDTO.Name,
                 Number = magazineDTO.Number,
                 PublishingHouse = magazineDTO.PublishingHouse,
@@ -76,7 +76,7 @@ namespace LibraryV2.Library.BLL.Mappers
             return new BookDTO()
             {
                 Autor = bookModel.Autor,
-                Code = bookModel.Code,
+                Id = bookModel.Id,
                 Genre = bookModel.Genre,
                 Name = bookModel.Name,
                 PublishingHouse = bookModel.PublishingHouse,
@@ -88,7 +88,7 @@ namespace LibraryV2.Library.BLL.Mappers
         {
             return new MagazineDTO()
             {
-                Code = magazineModel.Code,
+                Id = magazineModel.Id,
                 Name = magazineModel.Name,
                 Number = magazineModel.Number,
                 PublishingHouse = magazineModel.PublishingHouse,
@@ -100,7 +100,7 @@ namespace LibraryV2.Library.BLL.Mappers
             return new BookModel()
             {
                 Autor = bookDTO.Autor,
-                Code = bookDTO.Code,
+                Id = bookDTO.Id,
                 Genre = bookDTO.Genre,
                 Name = bookDTO.Name,
                 PublishingHouse = bookDTO.PublishingHouse,
@@ -112,7 +112,7 @@ namespace LibraryV2.Library.BLL.Mappers
         {
             return new MagazineModel()
             {
-                Code = magazineDTO.Code,
+                Id = magazineDTO.Id,
                 Name = magazineDTO.Name,
                 Number = magazineDTO.Number,
                 PublishingHouse = magazineDTO.PublishingHouse,

@@ -17,11 +17,12 @@ namespace LibraryV2.Library.Dal.Repositories
             return books;
         }
 
-        public BookEntity SearchBook(int code)
+        public BookEntity SearchBook(int id)
         {
+
             foreach (var item in books)
             {
-                if (code == item.Code)
+                if (id == item.Id)
                 {
                     return item;
                 }
@@ -33,7 +34,7 @@ namespace LibraryV2.Library.Dal.Repositories
         {
             foreach (var item in books)
             {
-                if (item.Code == book.Code)
+                if (item.Id == book.Id)
                 {
                     throw new Exception("код книги должен отличаться");
                 }
@@ -41,15 +42,12 @@ namespace LibraryV2.Library.Dal.Repositories
             books.Add(book);
         }
 
-        public void DeleteBook(int code)
+        public void DeleteBook(int id)
         {
-            foreach (var item in books)
-            {
-                if (code == item.Code)
-                {
-                    books.Remove(item);
-                }
-            }
+            var b = books.Find(x => x.Id == id);
+
+            books.Remove(b);
+
         }
     }
 }

@@ -13,16 +13,16 @@ namespace LibraryV2.Entities
 
         }
 
-        public MagazineEntity(int code, string name, int number, int year, string publishingHouse)
+        public MagazineEntity(int id, string name, int number, int year, string publishingHouse)
         {
-            Code = code;
+            Id = id;
             Name = name;
             Number = number;
             Year = year;
             PublishingHouse = publishingHouse;
         }
 
-        public int Code { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

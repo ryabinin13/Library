@@ -25,9 +25,9 @@ namespace LibraryV2.Library.BLL.Services
             magazineRepository.AddMagazine(item.MapMagazineDtoToEntity());
         }
 
-        public void DeleteMagazine(int code)
+        public void DeleteMagazine(int id)
         {
-            magazineRepository.DeleteMagazine(code);
+            magazineRepository.DeleteMagazine(id);
         }
 
         public List<MagazineDTO> GetAllMagazines()
@@ -35,9 +35,9 @@ namespace LibraryV2.Library.BLL.Services
             return magazineRepository.GetAllMagazines().MapMagazineListEntityToDto();
         }
 
-        public MagazineDTO SearchMagazine(int code)
+        public MagazineDTO SearchMagazine(int id)
         {
-            return magazineRepository.SearchMagazine(code).MapMagazineEntityToDto();
+            return magazineRepository.SearchMagazine(id).MapMagazineEntityToDto();
         }
     }
 }

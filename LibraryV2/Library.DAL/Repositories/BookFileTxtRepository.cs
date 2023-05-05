@@ -16,14 +16,14 @@ namespace LibraryV2.Library.DAL.Repositories
             List<BookEntity> bookEntities = GetAllBooks();
             foreach (var curr in bookEntities)
             {
-                if (curr.Code == item.Code)
+                if (curr.Id == item.Id)
                 {
                     throw new Exception("код книги должен отличаться");
                 }
             }
             using(var fileWriter = new StreamWriter("libraryBook.txt", true))
             {
-                fileWriter.WriteLine(item.Code);
+                fileWriter.WriteLine(item.Id);
                 fileWriter.WriteLine(item.Autor);
                 fileWriter.WriteLine(item.Genre);
                 fileWriter.WriteLine(item.Name);
@@ -32,14 +32,14 @@ namespace LibraryV2.Library.DAL.Repositories
             }
         }
 
-        public void DeleteBook(int code)
+        public void DeleteBook(int id)
         {
             
             List<BookEntity> bookEntities = GetAllBooks();
             
             for (int i = 0; i < bookEntities.Count; i++)
             {
-                if (bookEntities[i].Code == code)
+                if (bookEntities[i].Id == id)
                 {
                     BookEntity bookEntity = bookEntities[i];
                     bookEntities.Remove(bookEntity);
@@ -49,7 +49,7 @@ namespace LibraryV2.Library.DAL.Repositories
             {
                 for (int i = 0; i < bookEntities.Count; i++)
                 {
-                    fileWriter.WriteLine(bookEntities[i].Code);
+                    fileWriter.WriteLine(bookEntities[i].Id);
                     fileWriter.WriteLine(bookEntities[i].Autor);
                     fileWriter.WriteLine(bookEntities[i].Genre);
                     fileWriter.WriteLine(bookEntities[i].Name);
@@ -69,7 +69,7 @@ namespace LibraryV2.Library.DAL.Repositories
                 {
                     BookEntity currentBook = new BookEntity();
 
-                    currentBook.Code =Convert.ToInt32(fileReader.ReadLine());
+                    currentBook.Id =Convert.ToInt32(fileReader.ReadLine());
                     currentBook.Autor = fileReader.ReadLine();
                     currentBook.Genre = fileReader.ReadLine();
                     currentBook.Name = fileReader.ReadLine();
@@ -82,13 +82,13 @@ namespace LibraryV2.Library.DAL.Repositories
             }
         }
 
-        public BookEntity SearchBook(int code)
+        public BookEntity SearchBook(int id)
         {
             List<BookEntity> bookEntities = GetAllBooks();
 
             for (int i = 0; i < bookEntities.Count; i++)
             {
-                if (bookEntities[i].Code == code)
+                if (bookEntities[i].Id == id)
                 {
                     return bookEntities[i];                    
                 }

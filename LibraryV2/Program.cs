@@ -16,11 +16,11 @@ namespace LibraryV2
     {
         static void Main(string[] args)
         {
-            BookController bookController = new BookController(new BookService(new BookFileBinaryRepository()));
-            MagazineController magazineController = new MagazineController(new MagazineService(new MagazineFileTxtRepository()));
+            BookController bookController = new BookController(new BookService(new BookDBRepository()));
+            MagazineController magazineController = new MagazineController(new MagazineService(new MagazineRepository()));
 
             string name, autor, genre, publishingHouse;
-            int code, year, number;
+            int id, year, number;
 
             string choice;
 
@@ -52,11 +52,11 @@ namespace LibraryV2
                         Console.WriteLine("введите издательство: ");
                         publishingHouse = Console.ReadLine();
                         Console.WriteLine("введите код: ");
-                        code = Convert.ToInt32(Console.ReadLine());
+                        id = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("введите год: ");
                         year = Convert.ToInt32(Console.ReadLine());
 
-                        BookModel bookModel = new BookModel(name, code, autor, genre, year, publishingHouse);
+                        BookModel bookModel = new BookModel(name, id, autor, genre, year, publishingHouse);
 
                         bookController.AddBook(bookModel);
 
@@ -69,11 +69,11 @@ namespace LibraryV2
                         Console.WriteLine("введите издательство: ");
                         publishingHouse = Console.ReadLine();
                         Console.WriteLine("введите код: ");
-                        code = Convert.ToInt32(Console.ReadLine());
+                        id = Convert.ToInt32(Console.ReadLine());
                         Console.WriteLine("введите год: ");
                         year = Convert.ToInt32(Console.ReadLine());
 
-                        MagazineModel magazineModel = new MagazineModel(code, name, number, year, publishingHouse);
+                        MagazineModel magazineModel = new MagazineModel(id, name, number, year, publishingHouse);
 
                         magazineController.AddMagazine(magazineModel);
                         break;
@@ -81,14 +81,14 @@ namespace LibraryV2
                         List<BookModel> bookModels = bookController.GetAllBooks();
                         foreach (var item in bookModels)
                         {
-                            Console.WriteLine("название " + item.Name + '\n' + "код " + item.Code);
+                            Console.WriteLine("название " + item.Name + '\n' + "код " + item.Id);
                         }
                         break;
                     case "-printM":
                         List<MagazineModel> magazineModels = magazineController.GetAllMagazines();
                         foreach (var item in magazineModels)
                         {
-                            Console.WriteLine("название " + item.Name + '\n' + "код " + item.Code);
+                            Console.WriteLine("название " + item.Name + '\n' + "код " + item.Id);
                         }
                         //librarian.Print();
                         break;
@@ -117,7 +117,7 @@ namespace LibraryV2
 
                         currentBook = bookController.SearchBook(codeSearchBook);
 
-                        Console.WriteLine("название " + currentBook.Name + '\n' + "код " + currentBook.Code);
+                        Console.WriteLine("название " + currentBook.Name + '\n' + "код " + currentBook.Id);
 
                         break;
                     case "-searchM": //придумать куда сохранять и как применить найденную книгу
@@ -130,7 +130,7 @@ namespace LibraryV2
 
                         currentMagazine = magazineController.SearchMagazine(codeSearchMagazine);
 
-                        Console.WriteLine("название " + currentMagazine.Name + '\n' + "код " + currentMagazine.Code);
+                        Console.WriteLine("название " + currentMagazine.Name + '\n' + "код " + currentMagazine.Id);
 
                         break;
                     //case "-changeB":

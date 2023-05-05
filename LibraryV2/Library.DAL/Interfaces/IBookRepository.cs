@@ -10,8 +10,8 @@ namespace LibraryV2.Interfaces
     public interface IBookRepository
     {
         List<BookEntity> GetAllBooks();
-        BookEntity SearchBook(int code);
+        BookEntity SearchBook(int id);
         void AddBook(BookEntity item);
-        void DeleteBook(int code);
+        void DeleteBook(int id);
     }
 }

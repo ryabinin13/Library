@@ -10,8 +10,8 @@ namespace LibraryV2.Interfaces
     public interface IMagazineRepository
     {
         List<MagazineEntity> GetAllMagazines();
-        MagazineEntity SearchMagazine(int code);
+        MagazineEntity SearchMagazine(int id);
         void AddMagazine(MagazineEntity item);
-        void DeleteMagazine(int code);
+        void DeleteMagazine(int id);
     }
 }

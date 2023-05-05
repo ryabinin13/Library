@@ -28,13 +28,13 @@ namespace LibraryV2.Library.WEB.Controllers
             return bookService.GetAllBooks().MapBookListDtoToModel();
         }
 
-        public BookModel SearchBook(int code)
+        public BookModel SearchBook(int id)
         {
-            return bookService.SearchBook(code).MapBookDtoToModel();
+            return bookService.SearchBook(id).MapBookDtoToModel();
         }
-        public void DeleteBook(int code)
+        public void DeleteBook(int id)
         {
-            bookService.DeleteBook(code);
+            bookService.DeleteBook(id);
         }
     }
 }

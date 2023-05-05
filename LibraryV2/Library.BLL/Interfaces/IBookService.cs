@@ -11,8 +11,8 @@ namespace LibraryV2.Library.BLL.Interfaces
     public interface IBookService
     {
         List<BookDTO> GetAllBooks();
-        BookDTO SearchBook(int code);
+        BookDTO SearchBook(int id);
         void AddBook(BookDTO item);
-        void DeleteBook(int code);
+        void DeleteBook(int id);
     }
 }

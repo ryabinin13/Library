@@ -30,13 +30,13 @@ namespace LibraryV2.Library.WEB.Controllers
             return magazineService.GetAllMagazines().MapMagazineListDtoToModel();
         }
 
-        public MagazineModel SearchMagazine(int code)
+        public MagazineModel SearchMagazine(int id)
         {
-            return magazineService.SearchMagazine(code).MapMagazineDtoToModel();
+            return magazineService.SearchMagazine(id).MapMagazineDtoToModel();
         }
-        public void DeleteMagazine(int code)
+        public void DeleteMagazine(int id)
         {
-            magazineService.DeleteMagazine(code);
+            magazineService.DeleteMagazine(id);
         }
     }
 }
