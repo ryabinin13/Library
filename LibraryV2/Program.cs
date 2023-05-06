@@ -17,7 +17,7 @@ namespace LibraryV2
         static void Main(string[] args)
         {
             BookController bookController = new BookController(new BookService(new BookDBRepository()));
-            MagazineController magazineController = new MagazineController(new MagazineService(new MagazineRepository()));
+            MagazineController magazineController = new MagazineController(new MagazineService(new MagazineDBRepository()));
 
             string name, autor, genre, publishingHouse;
             int id, year, number;
